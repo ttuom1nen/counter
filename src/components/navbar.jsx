@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 // Stateless Functional Component:
 // Use shortcut sfc
-// Is same as class
 
 // Destructuring: instead of props everywhere
 // NavBar = (props) changes to NavBar = ({totalCounters})
-// And {props.totalCounters} to {totalCounters} 
+// And {props.totalCounters} to {totalCounters}
 
-const NavBar = ({totalCounters}) => {
-    return (
-        <nav className="navbar navbar-light bg-light">
-            <a className="navbar-brand" href="#">
-                Navbar <span className="badge badge-pill badge-secondary">
-                {totalCounters}
-                </span>
-            </a>
-        </nav>
-    );
-}
+const NavBar = ({ totalCounters }) => {
+  return (
+    <nav className="navbar navbar-light bg-light">
+      <a className="navbar-brand" href="#">
+        Navbar{" "}
+        <span className="badge badge-pill badge-secondary">
+          {totalCounters}
+        </span>
+      </a>
+    </nav>
+  );
+};
 /*
 class NavBar extends Component {
     render() {
@@ -33,5 +33,5 @@ class NavBar extends Component {
         );
     }
 }*/
- 
+
 export default NavBar;
