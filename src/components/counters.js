@@ -5,11 +5,14 @@ class Counters extends Component {
   render() {
     return (
       <div>
+        <button onClick={this.props.onAddNew} className="btn btn-primary">
+          Add counter
+        </button>
         <button
           onClick={this.props.onReset}
-          className="btn btn-primary btn-sm m-2"
+          className="btn btn-outline-info m-2"
         >
-          Reset
+          Reset all
         </button>
         <img src={this.props.imageUrl} alt="" />
         <div>

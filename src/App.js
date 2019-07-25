@@ -7,19 +7,16 @@ import "./App.css";
 class App extends Component {
   state = {
     imageUrl: "https://picsum.photos/200",
-    counters: [
-      { id: 1, value: 0 },
-      { id: 2, value: 0 },
-      { id: 3, value: 0 },
-      { id: 4, value: 0 }
-    ]
+    counters: [{ id: 0, value: 0 }]
   };
 
-  handleIncrement = counter => {
+  handleIncrement = (counter, operation) => {
+    console.log(operation);
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
-    counters[index].value++;
+    let value = operation ? -1 : 1;
+    counters[index].value = counters[index].value - value;
     this.setState({ counters });
   };
 
@@ -38,6 +35,12 @@ class App extends Component {
     this.setState({ counters: counters });
   };
 
+  handleAdd = () => {
+    let counter = { id: this.state.counters.length, value: 0 };
+    let counters = [...this.state.counters, counter];
+    this.setState({ counters: counters });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -53,6 +56,7 @@ class App extends Component {
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
             onDelete={this.handleDelete}
+            onAddNew={this.handleAdd}
           />
         </main>
       </React.Fragment>
