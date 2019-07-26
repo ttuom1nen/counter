@@ -19,7 +19,7 @@ class Counter extends Component {
             <h4 className="card-header">
               Counter{" "}
               <button
-                onClick={() => this.props.onDelete(this.props.counter.id)}
+                onClick={() => this.props.onDelete(this.props.counter.uuid)}
                 className="btn btn-danger btn-sm float-right"
               >
                 Delete
@@ -63,12 +63,6 @@ class Counter extends Component {
         )}
       </Spring>
     );
-  }
-
-  getBadgeClasses() {
-    let classes = "badge m-2 badge-";
-    classes += this.props.counter.value === 0 ? "warning" : "primary";
-    return classes;
   }
 
   formatCount() {

@@ -1,17 +1,15 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import NavBar from "./components/navbar";
 import Counters from "./components/counters";
 import "./App.css";
+import uuidv1 from "uuid/v1";
 
 class App extends Component {
   state = {
-    imageUrl: "https://picsum.photos/200",
-    counters: [{ id: 0, value: 0 }]
+    counters: [{ id: 0, uuid: 0, value: 0 }]
   };
 
   handleIncrement = (counter, operation) => {
-    console.log(operation);
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
@@ -28,15 +26,15 @@ class App extends Component {
     this.setState({ counters });
   };
 
-  handleDelete = counterId => {
+  handleDelete = counterUuid => {
     const counters = this.state.counters.filter(
-      counter => counter.id !== counterId
+      counter => counter.uuid !== counterUuid
     );
     this.setState({ counters: counters });
   };
 
   handleAdd = () => {
-    let counter = { id: this.state.counters.length, value: 0 };
+    let counter = { id: this.state.counters.length, uuid: uuidv1(), value: 0 };
     let counters = [...this.state.counters, counter];
     this.setState({ counters: counters });
   };
